@@ -111,7 +111,7 @@ export default function Hero() {
       <div className="absolute top-1/4 right-4 w-[600px] h-[600px] bg-gradient-to-br from-red-100/30 via-orange-50/20 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
 
       {/* MAIN TWO-COLUMN HERO GRID */}
-      <div className="w-full px-6 sm:px-10 lg:px-14 xl:px-20 max-w-[1920px] mx-auto flex-1 flex items-center my-auto">
+      <div className="w-full px-4 sm:px-8 lg:px-14 xl:px-20 max-w-[1920px] mx-auto flex-1 flex items-center my-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-center w-full">
         {/* ======================================================== */}
         {/* LEFT COLUMN: BRAND HEADLINE & INTERACTIVE CTAS           */}
@@ -122,9 +122,9 @@ export default function Hero() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="flex items-center gap-2 text-neutral-500 font-extrabold text-[11px] sm:text-xs tracking-[0.25em] uppercase mb-2"
+            className="flex items-center gap-2 text-neutral-500 font-extrabold text-[10px] sm:text-xs tracking-[0.25em] uppercase mb-2 flex-wrap"
           >
-            <span className="w-5 h-[1.5px] bg-rollz-red inline-block" />
+            <span className="w-4 sm:w-5 h-[1.5px] bg-rollz-red inline-block" />
             <span>GOOD FOOD</span>
             <span className="text-rollz-red font-black">•</span>
             <span>GREAT VIBES</span>
@@ -140,7 +140,7 @@ export default function Hero() {
                 initial={{ y: '100%', opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                className="text-[68px] sm:text-[90px] md:text-[104px] lg:text-[116px] font-black text-neutral-900 leading-[0.88] m-0 p-0"
+                className="text-[48px] xs:text-[62px] sm:text-[90px] md:text-[104px] lg:text-[116px] font-black text-neutral-900 leading-[0.88] m-0 p-0"
               >
                 WRAPPED IN
               </motion.h1>
@@ -152,7 +152,7 @@ export default function Hero() {
                 initial={{ y: '100%', opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className="text-[68px] sm:text-[90px] md:text-[104px] lg:text-[116px] font-black text-rollz-red leading-[0.88] m-0 p-0 flex items-center"
+                className="text-[48px] xs:text-[62px] sm:text-[90px] md:text-[104px] lg:text-[116px] font-black text-rollz-red leading-[0.88] m-0 p-0 flex items-center"
               >
                 <span>FLAVOUR.</span>
               </motion.div>
@@ -163,7 +163,7 @@ export default function Hero() {
                 animate={{ scaleX: 1, opacity: 1 }}
                 transition={{ duration: 0.9, delay: 2.3, ease: [0.16, 1, 0.3, 1] }}
                 style={{ originX: 0 }}
-                className="relative -mt-1 sm:-mt-2 md:-mt-3 w-[260px] sm:w-[350px] md:w-[420px] lg:w-[460px] h-3.5 sm:h-5 md:h-7 pointer-events-none"
+                className="relative -mt-1 sm:-mt-2 md:-mt-3 w-[200px] xs:w-[250px] sm:w-[350px] md:w-[420px] lg:w-[460px] h-3.5 sm:h-5 md:h-7 pointer-events-none"
               >
                 <img
                   src={brushUnderlineImg}
@@ -277,14 +277,14 @@ export default function Hero() {
         {/* ======================================================== */}
         {/* RIGHT COLUMN: 3D PARALLAX CINEMATIC FOOD STAGE           */}
         {/* ======================================================== */}
-        <div className="lg:col-span-7 xl:col-span-7 relative w-full h-[460px] sm:h-[540px] md:h-[620px] lg:h-[680px] xl:h-[720px] flex items-center justify-center mt-2 lg:mt-0">
+        <div className="lg:col-span-7 xl:col-span-7 relative w-full h-[320px] xs:h-[390px] sm:h-[500px] md:h-[620px] lg:h-[680px] xl:h-[720px] flex items-center justify-center mt-2 lg:mt-0">
           {/* LAYER 0: Red Dynamic Brush Swoosh (1.2s - 2.5s) */}
           <motion.div
             style={{ x: brushX, y: brushY }}
             initial={{ opacity: 0, scale: 0.7, rotate: -10 }}
             animate={{ opacity: 0.95, scale: 1, rotate: 0 }}
             transition={{ duration: 1.4, delay: 1.2, ease: [0.16, 1, 0.3, 1] }}
-            className="absolute top-0 right-0 sm:-top-4 sm:-right-4 w-[380px] sm:w-[500px] lg:w-[620px] xl:w-[700px] pointer-events-none z-0"
+            className="absolute top-0 right-0 sm:-top-4 sm:-right-4 w-[280px] xs:w-[340px] sm:w-[500px] lg:w-[620px] xl:w-[700px] pointer-events-none z-0"
           >
             <img
               src={brushSwooshImg}

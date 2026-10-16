@@ -1,21 +1,21 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MapPin, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import rollzLogo from '../assets/rollz-logo.png';
 
 const navLinks = [
   { name: 'HOME', href: '#home', active: true },
-  { name: 'OUR STORY', href: '#story' },
   { name: 'THE MENU', href: '#menu' },
-  { name: 'THE ROLLZ EXPERIENCE', href: '#experience' },
-  { name: 'FIND US', href: '#locations', mobileOnly: true },
+  { name: 'OUR STORY', href: '#story' },
+  { name: 'THE HYPE', href: '#hype' },
+  { name: 'CRAVE BOXES', href: '#combos' },
 ];
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="relative z-50 w-full pt-4 md:pt-6 px-6 sm:px-10 lg:px-16 xl:px-20">
+    <header className="relative z-50 w-full pt-3 sm:pt-4 md:pt-6 px-4 sm:px-8 lg:px-16 xl:px-20">
       <div className="flex items-center justify-between w-full">
         {/* LOGO: 0.0 - 0.5s fade in */}
         <motion.a
@@ -29,7 +29,7 @@ export default function Navbar() {
           <img
             src={rollzLogo}
             alt="ROLLZ Logo"
-            className="h-12 sm:h-14 md:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105 filter drop-shadow-sm"
+            className="h-10 sm:h-12 md:h-14 lg:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105 filter drop-shadow-sm"
           />
         </motion.a>
 
@@ -76,7 +76,7 @@ export default function Navbar() {
           </ul>
         </motion.nav>
 
-        {/* FIND US BUTTON: Desktop */}
+        {/* ACTION BUTTON: Desktop */}
         <motion.div
           initial={{ opacity: 0, scale: 0.85, x: 20 }}
           animate={{ opacity: 1, scale: 1, x: 0 }}
@@ -84,23 +84,21 @@ export default function Navbar() {
           className="hidden md:flex items-center"
         >
           <a
-            href="#locations"
+            href="#menu"
             className="group relative inline-flex items-center gap-2 bg-rollz-red text-white text-xs sm:text-sm font-bold tracking-wider uppercase px-6 py-2.5 rounded-full shadow-[0_8px_20px_rgba(242,13,24,0.35)] hover:shadow-[0_12px_28px_rgba(242,13,24,0.45)] hover:bg-[#d60a14] active:scale-95 transition-all duration-200 focus:outline-none focus-visible:ring-4 focus-visible:ring-red-300"
           >
-            <MapPin className="w-4 h-4 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6" />
-            <span>FIND US</span>
+            <span>TASTE THE MENU</span>
           </a>
         </motion.div>
 
         {/* MOBILE HAMBURGER BUTTON */}
         <div className="md:hidden flex items-center gap-3">
           <a
-            href="#locations"
+            href="#menu"
             className="flex items-center gap-1.5 bg-rollz-red text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md"
-            aria-label="Find Us"
+            aria-label="Taste The Menu"
           >
-            <MapPin className="w-3.5 h-3.5" />
-            <span>FIND US</span>
+            <span>MENU</span>
           </a>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}

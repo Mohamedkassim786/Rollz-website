@@ -18,6 +18,9 @@ export default {
         condensed: ['"Barlow Condensed"', '"Bebas Neue"', 'Impact', 'sans-serif'],
         sans: ['"Outfit"', 'system-ui', 'sans-serif'],
       },
+      screens: {
+        'xs': '420px',
+      },
       boxShadow: {
         'rollz-red': '0 10px 25px -5px rgba(242, 13, 24, 0.4), 0 8px 10px -6px rgba(242, 13, 24, 0.2)',
         'rollz-card': '0 20px 40px -15px rgba(0, 0, 0, 0.08)',
