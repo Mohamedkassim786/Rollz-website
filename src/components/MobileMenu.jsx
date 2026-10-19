@@ -488,7 +488,7 @@ export default function MobileMenu({ onBackToWebsite }) {
   // Generate Menu QR Code URL
   const qrTargetUrl = typeof window !== 'undefined'
     ? `${window.location.origin}/menu`
-    : `https://rollz.in/menu`;
+    : `https://rollz.store/menu`;
 
   const qrImageUrl = `https://api.qrserver.com/v1/create-qr-code/?size=320x320&data=${encodeURIComponent(
     qrTargetUrl
