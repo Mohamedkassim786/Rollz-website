@@ -126,11 +126,12 @@ export default function Footer() {
               </span>
               <div className="flex items-center gap-2">
                 <a
-                  href="https://instagram.com"
+                  href="https://www.instagram.com/rollz.pdkt?exln=MWJtOGRuZ2RuaHlqdg=="
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-9 h-9 rounded-xl bg-neutral-900 border border-neutral-700/80 hover:border-rollz-red flex items-center justify-center text-neutral-300 hover:text-white transition-all duration-300 hover:scale-110"
-                  aria-label="Instagram"
+                  aria-label="Instagram @rollz.pdkt"
+                  title="Follow @rollz.pdkt on Instagram"
                 >
                   <InstagramIcon className="w-4 h-4" />
                 </a>
@@ -218,27 +219,28 @@ export default function Footer() {
         {/* ======================================================== */}
         {/* 4. FOOD PURITY SEALS & CERTIFICATIONS                    */}
         {/* ======================================================== */}
-        <div className="py-8 border-b border-neutral-800/80 flex flex-wrap items-center justify-between gap-4 text-neutral-400 text-xs">
-          <div className="flex flex-wrap items-center gap-3 sm:gap-6">
-            <span className="inline-flex items-center gap-1.5 text-neutral-300 font-bold uppercase tracking-wider text-[11px] sm:text-xs">
-              <ShieldCheck className="w-4 h-4 text-emerald-400" />
+        <div className="py-6 sm:py-8 border-b border-neutral-800/80 flex flex-col md:flex-row items-center justify-between gap-4 text-neutral-400 text-xs">
+          {/* Symmetrical 2x2 grid on mobile, flex-row on desktop */}
+          <div className="grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-x-4 gap-y-3 sm:gap-6 w-full md:w-auto">
+            <span className="inline-flex items-center gap-2 text-neutral-300 font-bold uppercase tracking-wider text-[11px] sm:text-xs">
+              <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
               <span>100% Halal Certified</span>
             </span>
-            <span className="inline-flex items-center gap-1.5 text-neutral-300 font-bold uppercase tracking-wider text-[11px] sm:text-xs">
-              <CheckCircle2 className="w-4 h-4 text-rollz-red" />
+            <span className="inline-flex items-center gap-2 text-neutral-300 font-bold uppercase tracking-wider text-[11px] sm:text-xs">
+              <CheckCircle2 className="w-4 h-4 text-rollz-red shrink-0" />
               <span>Zero Seed Oils</span>
             </span>
-            <span className="inline-flex items-center gap-1.5 text-neutral-300 font-bold uppercase tracking-wider text-[11px] sm:text-xs">
-              <CheckCircle2 className="w-4 h-4 text-[#F59E0B]" />
-              <span>Zero High-Fructose Syrup</span>
+            <span className="inline-flex items-center gap-2 text-neutral-300 font-bold uppercase tracking-wider text-[11px] sm:text-xs">
+              <CheckCircle2 className="w-4 h-4 text-[#F59E0B] shrink-0" />
+              <span>Zero High-Fructose</span>
             </span>
-            <span className="inline-flex items-center gap-1.5 text-neutral-300 font-bold uppercase tracking-wider text-[11px] sm:text-xs">
-              <Clock className="w-4 h-4 text-[#20A9E0]" />
-              <span>Whipped Fresh Every 4h</span>
+            <span className="inline-flex items-center gap-2 text-neutral-300 font-bold uppercase tracking-wider text-[11px] sm:text-xs">
+              <Clock className="w-4 h-4 text-[#20A9E0] shrink-0" />
+              <span>Whipped Fresh 4h</span>
             </span>
           </div>
 
-          <div className="text-[11px] text-neutral-500 font-medium">
+          <div className="text-[11px] text-neutral-500 font-medium text-center md:text-right w-full md:w-auto pt-1 md:pt-0">
             <span>FSSAI License No. 11524021000842</span>
           </div>
         </div>
@@ -246,35 +248,45 @@ export default function Footer() {
         {/* ======================================================== */}
         {/* 5. BOTTOM BAR: COPYRIGHT & POLICIES                      */}
         {/* ======================================================== */}
-        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-neutral-500 text-[11px] sm:text-xs">
-          <div className="flex items-center gap-2">
-            <span>© 2026 ROLLZ FOODWORKS INC. ALL RIGHTS RESERVED.</span>
-            <span className="text-neutral-700">•</span>
-            <span className="text-neutral-400 font-medium">CRAVED RESPONSIBLY.</span>
+        <div className="pt-6 sm:pt-8 flex flex-col items-center justify-between gap-4 text-neutral-500 text-[11px] sm:text-xs text-center md:text-left">
+          {/* Top Row: Copyright & Crafted With */}
+          <div className="w-full flex flex-col sm:flex-row items-center justify-center md:justify-between gap-2.5">
+            <div className="flex flex-col xs:flex-row items-center gap-1.5 sm:gap-2 text-center sm:text-left">
+              <span>© 2026 ROLLZ FOODWORKS INC. ALL RIGHTS RESERVED.</span>
+              <span className="hidden xs:inline text-neutral-700">•</span>
+              <span className="text-neutral-400 font-bold tracking-wider text-[10px] sm:text-xs uppercase">
+                CRAVED RESPONSIBLY.
+              </span>
+            </div>
+
+            <div className="flex items-center gap-1.5 text-neutral-500 text-[11px]">
+              <span>Crafted with</span>
+              <Heart className="w-3.5 h-3.5 text-rollz-red fill-current inline animate-pulse" />
+              <span>for roll lovers</span>
+            </div>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-5 text-neutral-400">
+          {/* Symmetrical Centered Policy Links with Dot Dividers */}
+          <div className="flex flex-wrap items-center justify-center gap-x-3.5 sm:gap-x-6 gap-y-1.5 text-neutral-400 text-[11px] sm:text-xs pt-1">
             <a href="#privacy" className="hover:text-white transition-colors">
               Privacy Policy
             </a>
+            <span className="text-neutral-700">•</span>
             <a href="#terms" className="hover:text-white transition-colors">
               Terms of Service
             </a>
+            <span className="text-neutral-700">•</span>
             <a href="#allergens" className="hover:text-white transition-colors">
               Allergen Guide
             </a>
+            <span className="text-neutral-700">•</span>
             <a href="#nutrition" className="hover:text-white transition-colors">
               Nutrition Info
             </a>
+            <span className="text-neutral-700">•</span>
             <a href="#sitemap" className="hover:text-white transition-colors">
               Sitemap
             </a>
-          </div>
-
-          <div className="flex items-center gap-1 text-neutral-500 text-[10px]">
-            <span>Crafted with</span>
-            <Heart className="w-3 h-3 text-rollz-red fill-current inline" />
-            <span>for roll lovers</span>
           </div>
         </div>
 

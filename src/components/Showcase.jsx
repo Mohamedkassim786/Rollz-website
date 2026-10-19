@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Star, ChevronLeft, ChevronRight, Flame, ArrowUpRight } from 'lucide-react';
 
 import friesImg from '../assets/showcase-fries.png';
 import bbqImg from '../assets/showcase-bbq.png';
@@ -15,7 +15,7 @@ const dishes = [
     badge: 'CHEESY EXPLOSION',
     title: 'Firecracker Loaded Fries',
     subtitle: 'Golden crispy skin-on fries loaded with molten cheddar cheese sauce, fiery sriracha drizzle, tender grilled chicken cubes, and sliced pickled jalapeños.',
-    price: '$9.49',
+    price: '₹189',
     calories: '680 kcal',
     spiceLevel: 3,
     rating: '4.9',
@@ -47,7 +47,7 @@ const dishes = [
     badge: 'CHARCOAL ROASTED',
     title: 'Smoky Flame-Glazed BBQ',
     subtitle: 'Sizzling flame-seared chicken drumsticks glazed with rich molasses BBQ glaze, charred to perfection over hot coals, garnished with roasted sesame and herbs.',
-    price: '$13.99',
+    price: '₹289',
     calories: '740 kcal',
     spiceLevel: 2,
     rating: '5.0',
@@ -79,7 +79,7 @@ const dishes = [
     badge: 'ORIGINAL ROLLZ',
     title: 'The Monster Chicken Roll',
     subtitle: 'Our world-famous sliced double wrap packed with flame-grilled chicken, garlic mayo toum, fiery orange sauce drip, crisp greens, and pickled red onions in a charred tortilla.',
-    price: '$11.49',
+    price: '₹249',
     calories: '620 kcal',
     spiceLevel: 3,
     rating: '4.9',
@@ -111,7 +111,7 @@ const dishes = [
     badge: 'SECRET SPICES',
     title: 'Sizzling Seekh Skewers',
     subtitle: 'Succulent iron-skewer grilled seekh chicken infused with fragrant spices, charred cherry tomatoes, fresh mint leaves, purple onion rings, and roasted lemon wedges.',
-    price: '$14.29',
+    price: '₹319',
     calories: '590 kcal',
     spiceLevel: 2,
     rating: '4.8',
@@ -368,69 +368,115 @@ export default function Showcase() {
       {/* ======================================================== */}
       {/* DISH DETAILS CARD (BOTTOM INTERACTIVE PANEL)              */}
       {/* ======================================================== */}
-      <div className="max-w-4xl mx-3.5 sm:mx-auto mt-4 bg-white/90 backdrop-blur-md rounded-2xl sm:rounded-3xl p-4 sm:p-8 border border-neutral-200/80 shadow-lg">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentDish.id}
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -15 }}
-            transition={{ duration: 0.4 }}
-            className="flex flex-col md:flex-row items-center justify-between gap-6"
-          >
-            {/* Dish Info */}
-            <div className="text-left flex-1">
-              <div className="flex items-center gap-3 mb-2 flex-wrap">
-                <span
-                  className="px-3 py-1 text-white text-[10px] sm:text-xs font-black tracking-wider uppercase rounded-full shadow-sm transition-colors duration-500"
-                  style={{ backgroundColor: currentDish.theme.primary }}
-                >
-                  {currentDish.badge}
-                </span>
-                <div className="flex items-center gap-1 text-amber-500 text-xs font-bold">
-                  <Star className="w-3.5 h-3.5 fill-current" />
-                  <span>{currentDish.rating}</span>
-                  <span className="text-neutral-400">({currentDish.reviews} reviews)</span>
-                </div>
-                <span className="text-neutral-400 text-xs">•</span>
-                <span className="text-neutral-500 text-xs font-bold">{currentDish.calories}</span>
-              </div>
+      <div className="relative max-w-4xl mx-3.5 sm:mx-auto mt-4 sm:mt-6">
+        {/* Dynamic ambient backlight aura that smoothly reflects the dish theme */}
+        <div
+          className="absolute -inset-1 rounded-[32px] blur-2xl opacity-20 transition-all duration-700 pointer-events-none"
+          style={{ backgroundColor: currentDish.theme.primary }}
+        />
 
-              <h4 className="text-2xl sm:text-3xl font-black text-neutral-900 tracking-tight">
-                {currentDish.title}
-              </h4>
+        {/* Card Surface */}
+        <div className="relative bg-white/95 backdrop-blur-xl rounded-[26px] sm:rounded-[32px] border border-neutral-200/90 shadow-[0_20px_45px_rgba(0,0,0,0.08)] overflow-hidden">
+          {/* Top illuminated dynamic theme bar */}
+          <div
+            className="w-full h-1.5 transition-colors duration-500"
+            style={{ backgroundColor: currentDish.theme.primary }}
+          />
 
-              <p className="text-xs sm:text-sm text-neutral-600 font-medium mt-1.5 max-w-xl">
-                {currentDish.subtitle}
-              </p>
-
-              {/* Tags */}
-              <div className="flex items-center gap-2 mt-3 flex-wrap">
-                {currentDish.tags.map((t) => (
-                  <span
-                    key={t}
-                    className="text-[11px] font-bold text-neutral-600 bg-neutral-100/90 px-2.5 py-1 rounded-md border border-neutral-200/60"
-                  >
-                    #{t}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            {/* Price Tag */}
-            <div className="shrink-0 w-full md:w-auto flex md:flex-col items-center md:items-end justify-between md:justify-center pt-4 md:pt-0 border-t md:border-t-0 border-neutral-200">
-              <p className="text-[10px] font-bold text-neutral-400 uppercase tracking-wider">
-                PRICE
-              </p>
-              <p
-                className="text-2xl sm:text-3xl font-black tracking-tight transition-colors duration-500"
-                style={{ color: currentDish.theme.primary }}
+          <div className="p-5 sm:p-7 md:p-8">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentDish.id}
+                initial={{ opacity: 0, y: 20, scale: 0.98 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: -16, scale: 0.98 }}
+                transition={{ type: 'spring', stiffness: 320, damping: 25 }}
+                className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6"
               >
-                {currentDish.price}
-              </p>
-            </div>
-          </motion.div>
-        </AnimatePresence>
+                {/* Dish Info */}
+                <div className="text-left flex-1 space-y-2.5">
+                  <div className="flex items-center gap-2.5 flex-wrap">
+                    <span
+                      className="px-3.5 py-1 text-white text-[11px] font-black tracking-wider uppercase rounded-full shadow-sm transition-colors duration-500"
+                      style={{ backgroundColor: currentDish.theme.primary }}
+                    >
+                      {currentDish.badge}
+                    </span>
+
+                    {/* Star Rating Badge */}
+                    <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-amber-50 border border-amber-200/60 text-amber-600 text-xs font-black shadow-xs">
+                      <Star className="w-3.5 h-3.5 fill-amber-500 text-amber-500" />
+                      <span>{currentDish.rating}</span>
+                      <span className="text-neutral-400 font-bold text-[11px]">({currentDish.reviews} reviews)</span>
+                    </div>
+
+                    {/* Spice Flame Meter */}
+                    <div className="flex items-center gap-1 px-2.5 py-1 rounded-full bg-red-50 border border-red-200/60 text-rollz-red text-xs font-black shadow-xs">
+                      <Flame className="w-3.5 h-3.5 fill-current" />
+                      <span>Level {currentDish.spiceLevel}</span>
+                    </div>
+
+                    {/* Calories Tag */}
+                    <span className="text-neutral-500 text-xs font-bold px-2.5 py-1 rounded-full bg-neutral-100 border border-neutral-200/60">
+                      {currentDish.calories}
+                    </span>
+                  </div>
+
+                  <h4 className="font-hero-headline text-2xl sm:text-3xl md:text-4xl font-black text-neutral-900 tracking-tight leading-tight">
+                    {currentDish.title}
+                  </h4>
+
+                  <p className="text-xs sm:text-sm text-neutral-600 font-medium leading-relaxed max-w-xl">
+                    {currentDish.subtitle}
+                  </p>
+
+                  {/* Tags with Spring Entrance */}
+                  <div className="flex items-center gap-2 pt-1 flex-wrap">
+                    {currentDish.tags.map((t, idx) => (
+                      <motion.span
+                        key={t}
+                        initial={{ opacity: 0, scale: 0.85 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: idx * 0.04 }}
+                        className="text-[11px] font-bold text-neutral-700 bg-neutral-100/90 hover:bg-white hover:border-neutral-300 hover:shadow-xs px-2.5 py-1 rounded-lg border border-neutral-200/80 transition-all duration-200"
+                      >
+                        #{t}
+                      </motion.span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Price & Action Button */}
+                <div className="shrink-0 w-full md:w-auto flex md:flex-col items-center md:items-end justify-between md:justify-center pt-4 md:pt-0 border-t md:border-t-0 border-neutral-200/80 gap-3">
+                  <div className="text-left md:text-right">
+                    <span className="text-[10px] font-extrabold text-neutral-400 uppercase tracking-widest block">
+                      PRICE
+                    </span>
+                    <span
+                      className="font-hero-headline text-3xl sm:text-4xl md:text-[2.6rem] font-black tracking-tight leading-none transition-colors duration-500"
+                      style={{ color: currentDish.theme.primary }}
+                    >
+                      {currentDish.price}
+                    </span>
+                  </div>
+
+                  {/* Direct Crave Order CTA */}
+                  <a
+                    href="#order"
+                    className="inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 rounded-xl sm:rounded-2xl text-white font-black text-xs uppercase tracking-wider shadow-lg transition-all duration-300 hover:scale-105 active:scale-95"
+                    style={{
+                      backgroundColor: currentDish.theme.primary,
+                      boxShadow: `0 8px 20px ${currentDish.theme.primary}45`,
+                    }}
+                  >
+                    <span>CRAVE IT</span>
+                    <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />
+                  </a>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+        </div>
       </div>
     </section>
   );

@@ -17,6 +17,9 @@ export default {
       fontFamily: {
         condensed: ['"Barlow Condensed"', '"Bebas Neue"', 'Impact', 'sans-serif'],
         sans: ['"Outfit"', 'system-ui', 'sans-serif'],
+        poppins: ['"Poppins"', '"Outfit"', 'sans-serif'],
+        lobster: ['"Lobster"', 'cursive'],
+        script: ['"Lobster"', 'cursive'],
       },
       screens: {
         'xs': '420px',

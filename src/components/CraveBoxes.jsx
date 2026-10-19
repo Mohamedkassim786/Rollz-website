@@ -310,13 +310,13 @@ export default function CraveBoxes() {
       {/* =================================================================== */}
       {/* 2. GRAND CLOSING CALL TO ACTION BANNER & MASTER FOOTER              */}
       {/* =================================================================== */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 pb-16 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 pb-6 sm:pb-8 relative z-10">
         <motion.div
           id="order"
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="p-6 sm:p-12 rounded-2xl sm:rounded-3xl bg-neutral-950 text-white border border-neutral-800 relative overflow-hidden shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8 mb-16 sm:mb-20"
+          className="p-6 sm:p-12 rounded-2xl sm:rounded-3xl bg-neutral-950 text-white border border-neutral-800 relative overflow-hidden shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8 mb-0"
         >
           {/* Subtle fire glow accent */}
           <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-rollz-red/20 blur-[100px] pointer-events-none" />

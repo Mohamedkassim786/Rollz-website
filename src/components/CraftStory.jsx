@@ -32,7 +32,7 @@ const pillars = [
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
-        className="w-9 h-9 sm:w-11 sm:h-11 text-[#E8732A]"
+        className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 text-[#E8732A]"
       >
         <path d="M42 14L32 32" strokeWidth="2.5" />
         <path d="M16 32h32c0 10-7 18-16 18s-16-8-16-18z" />
@@ -64,7 +64,7 @@ const pillars = [
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
-        className="w-9 h-9 sm:w-11 sm:h-11 text-[#E52320]"
+        className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 text-[#E52320]"
       >
         <path d="M32 14c2 6 8 10 8 16a8 8 0 0 1-16 0c0-4 3-8 8-16z" />
         <path d="M32 34a4 4 0 0 0 4-4c0-2-2-4-4-6-2 2-4 4-4 6a4 4 0 0 0 4 4z" fill="currentColor" />
@@ -96,7 +96,7 @@ const pillars = [
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
-        className="w-9 h-9 sm:w-11 sm:h-11 text-[#F59E0B]"
+        className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 text-[#F59E0B]"
       >
         <path d="M32 14 C32 14, 18 32, 18 42 A14 14 0 0 0 46 42 C46 32, 32 14, 32 14 Z" strokeWidth="2.25" />
         <path d="M32 46c-3-2-5-5-5-8 0-4 3-7 5-9 2 2 5 5 5 9 0 3-2 6-5 8z" fill="currentColor" fillOpacity="0.2" />
@@ -124,7 +124,7 @@ const pillars = [
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
-        className="w-9 h-9 sm:w-11 sm:h-11 text-[#20A9E0]"
+        className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 text-[#20A9E0]"
       >
         {/* Rolling pin handles & roller */}
         <path d="M14 26l6 6M44 38l6 6" strokeWidth="2.5" />
@@ -156,27 +156,27 @@ export default function CraftStory() {
   });
 
   // CARD 1: Base card - already in place when entering the section
-  const card1Scale = useTransform(smoothProgress, [0.16, 0.38, 0.60, 0.82], [1, 0.98, 0.96, 0.94]);
+  const card1Scale = useTransform(smoothProgress, [0.10, 0.30, 0.52, 0.70], [1, 0.98, 0.96, 0.94]);
 
   // CARD 2: Enters from RIGHT side
-  const card2X = useTransform(smoothProgress, [0.16, 0.38], ['65vw', '0vw']);
-  const card2Y = useTransform(smoothProgress, [0.16, 0.38], ['15vh', '0vh']);
-  const card2Rotate = useTransform(smoothProgress, [0.16, 0.38], [3, 0]);
-  const card2Opacity = useTransform(smoothProgress, [0.16, 0.24], [0, 1]);
-  const card2Scale = useTransform(smoothProgress, [0.40, 0.60, 0.82], [1, 0.98, 0.96]);
+  const card2X = useTransform(smoothProgress, [0.10, 0.28], ['65vw', '0vw']);
+  const card2Y = useTransform(smoothProgress, [0.10, 0.28], ['10vh', '0vh']);
+  const card2Rotate = useTransform(smoothProgress, [0.10, 0.28], [3, 0]);
+  const card2Opacity = useTransform(smoothProgress, [0.10, 0.18], [0, 1]);
+  const card2Scale = useTransform(smoothProgress, [0.32, 0.52, 0.70], [1, 0.98, 0.96]);
 
   // CARD 3: Enters from LEFT side
-  const card3X = useTransform(smoothProgress, [0.38, 0.60], ['-65vw', '0vw']);
-  const card3Y = useTransform(smoothProgress, [0.38, 0.60], ['15vh', '0vh']);
-  const card3Rotate = useTransform(smoothProgress, [0.38, 0.60], [-3, 0]);
-  const card3Opacity = useTransform(smoothProgress, [0.38, 0.46], [0, 1]);
-  const card3Scale = useTransform(smoothProgress, [0.64, 0.82], [1, 0.98]);
+  const card3X = useTransform(smoothProgress, [0.32, 0.50], ['-65vw', '0vw']);
+  const card3Y = useTransform(smoothProgress, [0.32, 0.50], ['10vh', '0vh']);
+  const card3Rotate = useTransform(smoothProgress, [0.32, 0.50], [-3, 0]);
+  const card3Opacity = useTransform(smoothProgress, [0.32, 0.40], [0, 1]);
+  const card3Scale = useTransform(smoothProgress, [0.54, 0.70], [1, 0.98]);
 
   // CARD 4: Enters from RIGHT side
-  const card4X = useTransform(smoothProgress, [0.60, 0.82], ['65vw', '0vw']);
-  const card4Y = useTransform(smoothProgress, [0.60, 0.82], ['15vh', '0vh']);
-  const card4Rotate = useTransform(smoothProgress, [0.60, 0.82], [3, 0]);
-  const card4Opacity = useTransform(smoothProgress, [0.60, 0.68], [0, 1]);
+  const card4X = useTransform(smoothProgress, [0.54, 0.70], ['65vw', '0vw']);
+  const card4Y = useTransform(smoothProgress, [0.54, 0.70], ['10vh', '0vh']);
+  const card4Rotate = useTransform(smoothProgress, [0.54, 0.70], [3, 0]);
+  const card4Opacity = useTransform(smoothProgress, [0.54, 0.62], [0, 1]);
 
   // Floating background ingredients parallax (also smoothed with spring physics)
   const tomatoY = useTransform(smoothProgress, [0, 1], [-25, 50]);
@@ -190,11 +190,11 @@ export default function CraftStory() {
 
   useEffect(() => {
     const unsubscribe = smoothProgress.on('change', (latest) => {
-      if (latest < 0.25) {
+      if (latest < 0.20) {
         setActiveCard(0);
-      } else if (latest < 0.48) {
+      } else if (latest < 0.42) {
         setActiveCard(1);
-      } else if (latest < 0.70) {
+      } else if (latest < 0.64) {
         setActiveCard(2);
       } else {
         setActiveCard(3);
@@ -210,7 +210,7 @@ export default function CraftStory() {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     const scrollDistance = targetRef.current.offsetHeight - window.innerHeight;
     const targetRatio =
-      stepIndex === 0 ? 0.00 : stepIndex === 1 ? 0.28 : stepIndex === 2 ? 0.50 : 0.76;
+      stepIndex === 0 ? 0.00 : stepIndex === 1 ? 0.20 : stepIndex === 2 ? 0.42 : 0.64;
     const targetY = scrollTop + rect.top + targetRatio * scrollDistance;
     window.scrollTo({ top: targetY, behavior: 'smooth' });
   };
@@ -219,7 +219,7 @@ export default function CraftStory() {
     <div className="relative w-full bg-[#FAF8F5]">
       {/* ======================================================== */}
       {/* 1. PINNED SCROLL SECTION (4 STACKED CRAFT CARDS)         */}
-      {/* 380vh runway gives generous, buttery scroll distance     */}
+      {/* 380vh runway provides ample locked reading time for Card 4 */}
       {/* ======================================================== */}
       <section
         id="story"
@@ -227,8 +227,8 @@ export default function CraftStory() {
         className="relative w-full text-neutral-900 select-none border-t border-neutral-200/80"
         style={{ height: '380vh' }}
       >
-        {/* Pinned Sticky Viewport: Heading pinned at top, cards centered below */}
-        <div className="sticky top-0 h-screen w-full flex flex-col justify-between pt-3 sm:pt-7 pb-3 sm:pb-4 px-3 sm:px-6 lg:px-12 overflow-hidden">
+        {/* Pinned Sticky Viewport: Clean balanced elevation */}
+        <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-center pt-2 sm:pt-4 pb-6 sm:pb-10 px-3 sm:px-6 lg:px-12 overflow-hidden">
           {/* Subtle textured grain background */}
           <div
             className="absolute inset-0 pointer-events-none opacity-[0.03]"
@@ -288,8 +288,8 @@ export default function CraftStory() {
           {/* ======================================================== */}
           {/* SECTION HEADER PINNED AT THE TOP                         */}
           {/* ======================================================== */}
-          <div className="relative z-10 text-center max-w-xl mx-auto shrink-0 pt-1 sm:pt-2">
-            <div className="flex items-center justify-center gap-2 text-neutral-500 font-extrabold text-[10px] sm:text-xs tracking-[0.25em] uppercase mb-1">
+          <div className="relative z-10 text-center max-w-xl mx-auto shrink-0 mb-4 sm:mb-6">
+            <div className="flex items-center justify-center gap-2 text-neutral-500 font-extrabold text-[10px] sm:text-xs tracking-[0.25em] uppercase mb-1.5">
               <span className="w-4 h-[1.5px] bg-rollz-red inline-block" />
               <span>THE ROLLZ CRAFT STANDARD</span>
               <span className="text-rollz-red font-black">•</span>
@@ -308,8 +308,8 @@ export default function CraftStory() {
           {/* ======================================================== */}
           {/* STACKING CARDS DECK (CENTERED IN REMAINING SPACE)        */}
           {/* ======================================================== */}
-          <div className="relative z-10 w-full max-w-xl sm:max-w-2xl md:max-w-[700px] mx-auto flex-1 flex items-center justify-center my-auto">
-            <div className="relative w-full h-[390px] xs:h-[410px] sm:h-[440px]">
+          <div className="relative z-10 w-full max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-[940px] mx-auto px-2 sm:px-4">
+            <div className="relative w-full h-[450px] xs:h-[480px] sm:h-[510px] md:h-[530px]">
               {/* ---------------------------------------------------- */}
               {/* CARD 1: 24-HOUR SPICE SOAK (STATIC BASE CARD)       */}
               {/* ---------------------------------------------------- */}
@@ -321,70 +321,70 @@ export default function CraftStory() {
                 <button
                   type="button"
                   onClick={() => scrollToStep(0)}
-                  className={`w-full py-2.5 sm:py-3 px-5 rounded-xl sm:rounded-2xl flex items-center justify-center gap-3 sm:gap-5 shadow-sm border transition-all duration-300 focus:outline-none cursor-pointer ${
+                  className={`w-full h-11 sm:h-12 md:h-[50px] px-4 sm:px-6 md:px-8 rounded-t-2xl sm:rounded-t-[26px] rounded-b-none flex items-center justify-center gap-2.5 sm:gap-4 border-2 border-b-0 transition-all duration-300 focus:outline-none cursor-pointer ${
                     activeCard === 0
                       ? 'bg-neutral-900 text-white border-neutral-900 shadow-md ring-2 ring-neutral-900/10'
-                      : 'bg-[#EAE4D8] text-neutral-800 border-neutral-300 opacity-90 hover:opacity-100'
+                      : 'bg-[#EAE4D8] text-neutral-800 border-neutral-300/80 shadow-sm opacity-95 hover:opacity-100 hover:bg-[#E2DACB]'
                   }`}
                   aria-label={`Scroll to ${pillars[0].tabTitle}`}
                 >
                   <span
-                    className="w-2.5 h-2.5 rounded-full shrink-0"
+                    className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full shrink-0"
                     style={{ backgroundColor: pillars[0].themeColor }}
                   />
-                  <span className="font-hero-headline text-base sm:text-xl md:text-2xl font-black tracking-wider uppercase leading-none">
+                  <span className="font-hero-headline text-xs sm:text-base md:text-lg font-black tracking-wider uppercase leading-none">
                     {pillars[0].tabTitle}
                   </span>
                   <span
-                    className="w-2.5 h-2.5 rounded-full shrink-0"
+                    className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full shrink-0"
                     style={{ backgroundColor: pillars[0].themeColor }}
                   />
                 </button>
 
                 {/* Body 1 */}
-                <div className="w-full mt-2 rounded-[22px] sm:rounded-[28px] bg-white border-2 border-neutral-200/90 p-4 sm:p-5 md:p-6 text-center shadow-[0_15px_35px_rgba(0,0,0,0.06)] relative overflow-hidden">
+                <div className="w-full mt-0 rounded-b-2xl sm:rounded-b-[26px] rounded-t-none bg-white border-2 border-neutral-200/90 border-t-0 p-4 sm:p-6 md:p-8 lg:p-9 text-center shadow-[0_20px_50px_rgba(0,0,0,0.08)] relative overflow-hidden">
                   <div
-                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 rounded-full blur-3xl opacity-10 pointer-events-none"
+                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 sm:w-80 sm:h-80 rounded-full blur-3xl opacity-10 pointer-events-none"
                     style={{ backgroundColor: pillars[0].themeColor }}
                   />
 
                   <div className="relative z-10 flex flex-col items-center">
-                    <div className="mx-auto w-12 h-12 sm:w-14 sm:h-14 rounded-full border-2 border-neutral-900/15 flex items-center justify-center mb-2 bg-[#FAF8F5] shadow-inner">
+                    <div className="mx-auto w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full border-2 border-neutral-900/15 flex items-center justify-center mb-2 sm:mb-3 bg-[#FAF8F5] shadow-inner">
                       {pillars[0].icon}
                     </div>
 
-                    <div className="flex items-center gap-1.5 mb-1">
+                    <div className="flex items-center gap-2 mb-1.5 sm:mb-2">
                       <span
-                        className="w-1.5 h-1.5 rounded-full"
+                        className="w-2 h-2 rounded-full"
                         style={{ backgroundColor: pillars[0].themeColor }}
                       />
-                      <span className="text-[10px] sm:text-[11px] font-black tracking-[0.2em] uppercase text-neutral-400">
+                      <span className="text-[10px] sm:text-xs md:text-sm font-black tracking-[0.25em] uppercase text-neutral-400">
                         {pillars[0].step}
                       </span>
                       <span className="text-neutral-400 font-bold">•</span>
                       <span
-                        className="text-[10px] sm:text-[11px] font-extrabold tracking-wider uppercase"
+                        className="text-[10px] sm:text-xs md:text-sm font-extrabold tracking-wider uppercase"
                         style={{ color: pillars[0].themeColor }}
                       >
                         {pillars[0].badge}
                       </span>
                     </div>
 
-                    <h3 className="font-hero-headline text-lg sm:text-2xl md:text-[1.6rem] font-black text-neutral-900 uppercase tracking-tight mb-1.5 leading-none max-w-lg">
+                    <h3 className="font-hero-headline text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-[2.1rem] font-black text-neutral-900 uppercase tracking-tight mb-2 sm:mb-3 leading-tight max-w-2xl">
                       {pillars[0].headline}
                     </h3>
 
-                    <p className="text-neutral-600 text-xs sm:text-sm font-normal max-w-md mx-auto leading-relaxed">
+                    <p className="text-xs sm:text-sm md:text-base text-neutral-600 font-medium max-w-2xl mx-auto leading-relaxed mb-3 sm:mb-4">
                       {pillars[0].description}
                     </p>
 
-                    <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 mt-2.5 pt-2 border-t border-neutral-100 w-full max-w-lg">
+                    <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2.5 pt-2.5 sm:pt-3 border-t border-neutral-100 w-full max-w-xl">
                       {pillars[0].tags.map((tag) => (
                         <span
                           key={tag}
-                          className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-neutral-100 border border-neutral-200 text-neutral-700 text-[10px] sm:text-[11px] font-bold tracking-wider uppercase"
+                          className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-3.5 py-1 rounded-full bg-neutral-100 border border-neutral-200 text-neutral-700 text-xs sm:text-sm font-bold tracking-wider uppercase"
                         >
-                          <Check className="w-3 h-3 text-rollz-red stroke-[2.5]" />
+                          <Check className="w-3.5 sm:w-4 h-3.5 sm:h-4 text-rollz-red stroke-[2.5]" />
                           <span>{tag}</span>
                         </span>
                       ))}
@@ -398,76 +398,76 @@ export default function CraftStory() {
               {/* ---------------------------------------------------- */}
               <motion.div
                 style={{ x: card2X, y: card2Y, rotate: card2Rotate, opacity: card2Opacity, scale: card2Scale }}
-                className="absolute inset-x-0 top-[36px] sm:top-[46px] z-20 origin-top"
+                className="absolute inset-x-0 top-[38px] sm:top-[44px] md:top-[48px] z-20 origin-top"
               >
                 {/* Tab 2 */}
                 <button
                   type="button"
                   onClick={() => scrollToStep(1)}
-                  className={`w-full py-2.5 sm:py-3 px-5 rounded-xl sm:rounded-2xl flex items-center justify-center gap-3 sm:gap-5 shadow-md border transition-all duration-300 focus:outline-none cursor-pointer ${
+                  className={`w-full h-11 sm:h-12 md:h-[50px] px-4 sm:px-6 md:px-8 rounded-t-2xl sm:rounded-t-[26px] rounded-b-none flex items-center justify-center gap-2.5 sm:gap-4 border-2 border-b-0 transition-all duration-300 focus:outline-none cursor-pointer ${
                     activeCard === 1
                       ? 'bg-neutral-900 text-white border-neutral-900 shadow-md ring-2 ring-neutral-900/10'
-                      : 'bg-[#EAE4D8] text-neutral-800 border-neutral-300 opacity-90 hover:opacity-100'
+                      : 'bg-[#EAE4D8] text-neutral-800 border-neutral-300/80 shadow-sm opacity-95 hover:opacity-100 hover:bg-[#E2DACB]'
                   }`}
                   aria-label={`Scroll to ${pillars[1].tabTitle}`}
                 >
                   <span
-                    className="w-2.5 h-2.5 rounded-full shrink-0"
+                    className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full shrink-0"
                     style={{ backgroundColor: pillars[1].themeColor }}
                   />
-                  <span className="font-hero-headline text-base sm:text-xl md:text-2xl font-black tracking-wider uppercase leading-none">
+                  <span className="font-hero-headline text-xs sm:text-base md:text-lg font-black tracking-wider uppercase leading-none">
                     {pillars[1].tabTitle}
                   </span>
                   <span
-                    className="w-2.5 h-2.5 rounded-full shrink-0"
+                    className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full shrink-0"
                     style={{ backgroundColor: pillars[1].themeColor }}
                   />
                 </button>
 
                 {/* Body 2 */}
-                <div className="w-full mt-2 rounded-[22px] sm:rounded-[28px] bg-white border-2 border-neutral-200/90 p-4 sm:p-5 md:p-6 text-center shadow-[0_-6px_20px_rgba(0,0,0,0.05),0_15px_35px_rgba(0,0,0,0.08)] relative overflow-hidden">
+                <div className="w-full mt-0 rounded-b-2xl sm:rounded-b-[26px] rounded-t-none bg-white border-2 border-neutral-200/90 border-t-0 p-4 sm:p-6 md:p-8 lg:p-9 text-center shadow-[0_-6px_20px_rgba(0,0,0,0.06),0_20px_50px_rgba(0,0,0,0.08)] relative overflow-hidden">
                   <div
-                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 rounded-full blur-3xl opacity-10 pointer-events-none"
+                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 sm:w-80 sm:h-80 rounded-full blur-3xl opacity-10 pointer-events-none"
                     style={{ backgroundColor: pillars[1].themeColor }}
                   />
 
                   <div className="relative z-10 flex flex-col items-center">
-                    <div className="mx-auto w-12 h-12 sm:w-14 sm:h-14 rounded-full border-2 border-neutral-900/15 flex items-center justify-center mb-2 bg-[#FAF8F5] shadow-inner">
+                    <div className="mx-auto w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full border-2 border-neutral-900/15 flex items-center justify-center mb-2 sm:mb-3 bg-[#FAF8F5] shadow-inner">
                       {pillars[1].icon}
                     </div>
 
-                    <div className="flex items-center gap-1.5 mb-1">
+                    <div className="flex items-center gap-2 mb-1.5 sm:mb-2">
                       <span
-                        className="w-1.5 h-1.5 rounded-full"
+                        className="w-2 h-2 rounded-full"
                         style={{ backgroundColor: pillars[1].themeColor }}
                       />
-                      <span className="text-[10px] sm:text-[11px] font-black tracking-[0.2em] uppercase text-neutral-400">
+                      <span className="text-[10px] sm:text-xs md:text-sm font-black tracking-[0.25em] uppercase text-neutral-400">
                         {pillars[1].step}
                       </span>
                       <span className="text-neutral-400 font-bold">•</span>
                       <span
-                        className="text-[10px] sm:text-[11px] font-extrabold tracking-wider uppercase"
+                        className="text-[10px] sm:text-xs md:text-sm font-extrabold tracking-wider uppercase"
                         style={{ color: pillars[1].themeColor }}
                       >
                         {pillars[1].badge}
                       </span>
                     </div>
 
-                    <h3 className="font-hero-headline text-lg sm:text-2xl md:text-[1.6rem] font-black text-neutral-900 uppercase tracking-tight mb-1.5 leading-none max-w-lg">
+                    <h3 className="font-hero-headline text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-[2.1rem] font-black text-neutral-900 uppercase tracking-tight mb-2 sm:mb-3 leading-tight max-w-2xl">
                       {pillars[1].headline}
                     </h3>
 
-                    <p className="text-neutral-600 text-xs sm:text-sm font-normal max-w-md mx-auto leading-relaxed">
+                    <p className="text-xs sm:text-sm md:text-base text-neutral-600 font-medium max-w-2xl mx-auto leading-relaxed mb-3 sm:mb-4">
                       {pillars[1].description}
                     </p>
 
-                    <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 mt-2.5 pt-2 border-t border-neutral-100 w-full max-w-lg">
+                    <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2.5 pt-2.5 sm:pt-3 border-t border-neutral-100 w-full max-w-xl">
                       {pillars[1].tags.map((tag) => (
                         <span
                           key={tag}
-                          className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-neutral-100 border border-neutral-200 text-neutral-700 text-[10px] sm:text-[11px] font-bold tracking-wider uppercase"
+                          className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-3.5 py-1 rounded-full bg-neutral-100 border border-neutral-200 text-neutral-700 text-xs sm:text-sm font-bold tracking-wider uppercase"
                         >
-                          <Check className="w-3 h-3 text-rollz-red stroke-[2.5]" />
+                          <Check className="w-3.5 sm:w-4 h-3.5 sm:h-4 text-rollz-red stroke-[2.5]" />
                           <span>{tag}</span>
                         </span>
                       ))}
@@ -481,76 +481,76 @@ export default function CraftStory() {
               {/* ---------------------------------------------------- */}
               <motion.div
                 style={{ x: card3X, y: card3Y, rotate: card3Rotate, opacity: card3Opacity, scale: card3Scale }}
-                className="absolute inset-x-0 top-[72px] sm:top-[92px] z-30 origin-top"
+                className="absolute inset-x-0 top-[76px] sm:top-[88px] md:top-[96px] z-30 origin-top"
               >
                 {/* Tab 3 */}
                 <button
                   type="button"
                   onClick={() => scrollToStep(2)}
-                  className={`w-full py-2.5 sm:py-3 px-5 rounded-xl sm:rounded-2xl flex items-center justify-center gap-3 sm:gap-5 shadow-lg border transition-all duration-300 focus:outline-none cursor-pointer ${
+                  className={`w-full h-11 sm:h-12 md:h-[50px] px-4 sm:px-6 md:px-8 rounded-t-2xl sm:rounded-t-[26px] rounded-b-none flex items-center justify-center gap-2.5 sm:gap-4 border-2 border-b-0 transition-all duration-300 focus:outline-none cursor-pointer ${
                     activeCard === 2
-                      ? 'bg-neutral-900 text-white border-neutral-900 shadow-xl ring-2 ring-neutral-900/10'
-                      : 'bg-[#EAE4D8] text-neutral-800 border-neutral-300 opacity-90 hover:opacity-100'
+                      ? 'bg-neutral-900 text-white border-neutral-900 shadow-md ring-2 ring-neutral-900/10'
+                      : 'bg-[#EAE4D8] text-neutral-800 border-neutral-300/80 shadow-sm opacity-95 hover:opacity-100 hover:bg-[#E2DACB]'
                   }`}
                   aria-label={`Scroll to ${pillars[2].tabTitle}`}
                 >
                   <span
-                    className="w-2.5 h-2.5 rounded-full shrink-0"
+                    className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full shrink-0"
                     style={{ backgroundColor: pillars[2].themeColor }}
                   />
-                  <span className="font-hero-headline text-base sm:text-xl md:text-2xl font-black tracking-wider uppercase leading-none">
+                  <span className="font-hero-headline text-xs sm:text-base md:text-lg font-black tracking-wider uppercase leading-none">
                     {pillars[2].tabTitle}
                   </span>
                   <span
-                    className="w-2.5 h-2.5 rounded-full shrink-0"
+                    className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full shrink-0"
                     style={{ backgroundColor: pillars[2].themeColor }}
                   />
                 </button>
 
                 {/* Body 3 */}
-                <div className="w-full mt-2 rounded-[22px] sm:rounded-[28px] bg-white border-2 border-neutral-200/90 p-4 sm:p-5 md:p-6 text-center shadow-[0_-6px_20px_rgba(0,0,0,0.06),0_15px_35px_rgba(0,0,0,0.1)] relative overflow-hidden">
+                <div className="w-full mt-0 rounded-b-2xl sm:rounded-b-[26px] rounded-t-none bg-white border-2 border-neutral-200/90 border-t-0 p-4 sm:p-6 md:p-8 lg:p-9 text-center shadow-[0_-6px_20px_rgba(0,0,0,0.06),0_20px_50px_rgba(0,0,0,0.1)] relative overflow-hidden">
                   <div
-                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 rounded-full blur-3xl opacity-10 pointer-events-none"
+                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 sm:w-80 sm:h-80 rounded-full blur-3xl opacity-10 pointer-events-none"
                     style={{ backgroundColor: pillars[2].themeColor }}
                   />
 
                   <div className="relative z-10 flex flex-col items-center">
-                    <div className="mx-auto w-12 h-12 sm:w-14 sm:h-14 rounded-full border-2 border-neutral-900/15 flex items-center justify-center mb-2 bg-[#FAF8F5] shadow-inner">
+                    <div className="mx-auto w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full border-2 border-neutral-900/15 flex items-center justify-center mb-2 sm:mb-3 bg-[#FAF8F5] shadow-inner">
                       {pillars[2].icon}
                     </div>
 
-                    <div className="flex items-center gap-1.5 mb-1">
+                    <div className="flex items-center gap-2 mb-1.5 sm:mb-2">
                       <span
-                        className="w-1.5 h-1.5 rounded-full"
+                        className="w-2 h-2 rounded-full"
                         style={{ backgroundColor: pillars[2].themeColor }}
                       />
-                      <span className="text-[10px] sm:text-[11px] font-black tracking-[0.2em] uppercase text-neutral-400">
+                      <span className="text-[10px] sm:text-xs md:text-sm font-black tracking-[0.25em] uppercase text-neutral-400">
                         {pillars[2].step}
                       </span>
                       <span className="text-neutral-400 font-bold">•</span>
                       <span
-                        className="text-[10px] sm:text-[11px] font-extrabold tracking-wider uppercase"
+                        className="text-[10px] sm:text-xs md:text-sm font-extrabold tracking-wider uppercase"
                         style={{ color: pillars[2].themeColor }}
                       >
                         {pillars[2].badge}
                       </span>
                     </div>
 
-                    <h3 className="font-hero-headline text-lg sm:text-2xl md:text-[1.6rem] font-black text-neutral-900 uppercase tracking-tight mb-1.5 leading-none max-w-lg">
+                    <h3 className="font-hero-headline text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-[2.1rem] font-black text-neutral-900 uppercase tracking-tight mb-2 sm:mb-3 leading-tight max-w-2xl">
                       {pillars[2].headline}
                     </h3>
 
-                    <p className="text-neutral-600 text-xs sm:text-sm font-normal max-w-md mx-auto leading-relaxed">
+                    <p className="text-xs sm:text-sm md:text-base text-neutral-600 font-medium max-w-2xl mx-auto leading-relaxed mb-3 sm:mb-4">
                       {pillars[2].description}
                     </p>
 
-                    <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 mt-2.5 pt-2 border-t border-neutral-100 w-full max-w-lg">
+                    <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2.5 pt-2.5 sm:pt-3 border-t border-neutral-100 w-full max-w-xl">
                       {pillars[2].tags.map((tag) => (
                         <span
                           key={tag}
-                          className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-neutral-100 border border-neutral-200 text-neutral-700 text-[10px] sm:text-[11px] font-bold tracking-wider uppercase"
+                          className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-3.5 py-1 rounded-full bg-neutral-100 border border-neutral-200 text-neutral-700 text-xs sm:text-sm font-bold tracking-wider uppercase"
                         >
-                          <Check className="w-3 h-3 text-rollz-red stroke-[2.5]" />
+                          <Check className="w-3.5 sm:w-4 h-3.5 sm:h-4 text-rollz-red stroke-[2.5]" />
                           <span>{tag}</span>
                         </span>
                       ))}
@@ -564,76 +564,76 @@ export default function CraftStory() {
               {/* ---------------------------------------------------- */}
               <motion.div
                 style={{ x: card4X, y: card4Y, rotate: card4Rotate, opacity: card4Opacity }}
-                className="absolute inset-x-0 top-[108px] sm:top-[138px] z-40 origin-top"
+                className="absolute inset-x-0 top-[114px] sm:top-[132px] md:top-[144px] z-40 origin-top"
               >
                 {/* Tab 4 */}
                 <button
                   type="button"
                   onClick={() => scrollToStep(3)}
-                  className={`w-full py-2.5 sm:py-3 px-5 rounded-xl sm:rounded-2xl flex items-center justify-center gap-3 sm:gap-5 shadow-xl border transition-all duration-300 focus:outline-none cursor-pointer ${
+                  className={`w-full h-11 sm:h-12 md:h-[50px] px-4 sm:px-6 md:px-8 rounded-t-2xl sm:rounded-t-[26px] rounded-b-none flex items-center justify-center gap-2.5 sm:gap-4 border-2 border-b-0 transition-all duration-300 focus:outline-none cursor-pointer ${
                     activeCard === 3
-                      ? 'bg-neutral-900 text-white border-neutral-900 shadow-2xl ring-2 ring-neutral-900/10'
-                      : 'bg-[#EAE4D8] text-neutral-800 border-neutral-300 opacity-90 hover:opacity-100'
+                      ? 'bg-neutral-900 text-white border-neutral-900 shadow-md ring-2 ring-neutral-900/10'
+                      : 'bg-[#EAE4D8] text-neutral-800 border-neutral-300/80 shadow-sm opacity-95 hover:opacity-100 hover:bg-[#E2DACB]'
                   }`}
                   aria-label={`Scroll to ${pillars[3].tabTitle}`}
                 >
                   <span
-                    className="w-2.5 h-2.5 rounded-full shrink-0"
+                    className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full shrink-0"
                     style={{ backgroundColor: pillars[3].themeColor }}
                   />
-                  <span className="font-hero-headline text-base sm:text-xl md:text-2xl font-black tracking-wider uppercase leading-none">
+                  <span className="font-hero-headline text-xs sm:text-base md:text-lg font-black tracking-wider uppercase leading-none">
                     {pillars[3].tabTitle}
                   </span>
                   <span
-                    className="w-2.5 h-2.5 rounded-full shrink-0"
+                    className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full shrink-0"
                     style={{ backgroundColor: pillars[3].themeColor }}
                   />
                 </button>
 
                 {/* Body 4 */}
-                <div className="w-full mt-2 rounded-[22px] sm:rounded-[28px] bg-white border-2 border-neutral-200/90 p-4 sm:p-5 md:p-6 text-center shadow-[0_-6px_20px_rgba(0,0,0,0.06),0_15px_35px_rgba(0,0,0,0.12)] relative overflow-hidden">
+                <div className="w-full mt-0 rounded-b-2xl sm:rounded-b-[26px] rounded-t-none bg-white border-2 border-neutral-200/90 border-t-0 p-4 sm:p-6 md:p-8 lg:p-9 text-center shadow-[0_-6px_20px_rgba(0,0,0,0.06),0_20px_50px_rgba(0,0,0,0.12)] relative overflow-hidden">
                   <div
-                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 rounded-full blur-3xl opacity-10 pointer-events-none"
+                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 sm:w-80 sm:h-80 rounded-full blur-3xl opacity-10 pointer-events-none"
                     style={{ backgroundColor: pillars[3].themeColor }}
                   />
 
                   <div className="relative z-10 flex flex-col items-center">
-                    <div className="mx-auto w-12 h-12 sm:w-14 sm:h-14 rounded-full border-2 border-neutral-900/15 flex items-center justify-center mb-2 bg-[#FAF8F5] shadow-inner">
+                    <div className="mx-auto w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full border-2 border-neutral-900/15 flex items-center justify-center mb-2 sm:mb-3 bg-[#FAF8F5] shadow-inner">
                       {pillars[3].icon}
                     </div>
 
-                    <div className="flex items-center gap-1.5 mb-1">
+                    <div className="flex items-center gap-2 mb-1.5 sm:mb-2">
                       <span
-                        className="w-1.5 h-1.5 rounded-full"
+                        className="w-2 h-2 rounded-full"
                         style={{ backgroundColor: pillars[3].themeColor }}
                       />
-                      <span className="text-[10px] sm:text-[11px] font-black tracking-[0.2em] uppercase text-neutral-400">
+                      <span className="text-[10px] sm:text-xs md:text-sm font-black tracking-[0.25em] uppercase text-neutral-400">
                         {pillars[3].step}
                       </span>
                       <span className="text-neutral-400 font-bold">•</span>
                       <span
-                        className="text-[10px] sm:text-[11px] font-extrabold tracking-wider uppercase"
+                        className="text-[10px] sm:text-xs md:text-sm font-extrabold tracking-wider uppercase"
                         style={{ color: pillars[3].themeColor }}
                       >
                         {pillars[3].badge}
                       </span>
                     </div>
 
-                    <h3 className="font-hero-headline text-lg sm:text-2xl md:text-[1.6rem] font-black text-neutral-900 uppercase tracking-tight mb-1.5 leading-none max-w-lg">
+                    <h3 className="font-hero-headline text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-[2.1rem] font-black text-neutral-900 uppercase tracking-tight mb-2 sm:mb-3 leading-tight max-w-2xl">
                       {pillars[3].headline}
                     </h3>
 
-                    <p className="text-neutral-600 text-xs sm:text-sm font-normal max-w-md mx-auto leading-relaxed">
+                    <p className="text-xs sm:text-sm md:text-base text-neutral-600 font-medium max-w-2xl mx-auto leading-relaxed mb-3 sm:mb-4">
                       {pillars[3].description}
                     </p>
 
-                    <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 mt-2.5 pt-2 border-t border-neutral-100 w-full max-w-lg">
+                    <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2.5 pt-2.5 sm:pt-3 border-t border-neutral-100 w-full max-w-xl">
                       {pillars[3].tags.map((tag) => (
                         <span
                           key={tag}
-                          className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-neutral-100 border border-neutral-200 text-neutral-700 text-[10px] sm:text-[11px] font-bold tracking-wider uppercase"
+                          className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-3.5 py-1 rounded-full bg-neutral-100 border border-neutral-200 text-neutral-700 text-xs sm:text-sm font-bold tracking-wider uppercase"
                         >
-                          <Check className="w-3 h-3 text-rollz-red stroke-[2.5]" />
+                          <Check className="w-3.5 sm:w-4 h-3.5 sm:h-4 text-rollz-red stroke-[2.5]" />
                           <span>{tag}</span>
                         </span>
                       ))}
@@ -644,13 +644,8 @@ export default function CraftStory() {
             </div>
           </div>
 
-          {/* Balanced bottom spacer */}
-          <div className="h-2 sm:h-4 shrink-0 pointer-events-none" />
         </div>
       </section>
-
-      {/* Generous white cushion buffer so the dark SocialHype section never cuts into the cards */}
-      <div className="w-full h-32 sm:h-48 bg-[#FAF8F5]" />
     </div>
   );
 }

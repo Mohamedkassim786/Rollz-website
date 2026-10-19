@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, useMotionValue, useSpring, useTransform, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Play, Flame, Leaf, Utensils, ChevronDown, X } from 'lucide-react';
-import Navbar from './Navbar';
 
 import chickenRollImg from '../assets/hero-chicken-roll.png';
 import lettuceImg from '../assets/lettuce.png';
@@ -12,9 +11,38 @@ import brushSwooshImg from '../assets/brush-swoosh.png';
 import brushUnderlineImg from '../assets/brush-underline.png';
 import leavesTopLeft from '../assets/leaves-top-left.png';
 import leavesRight from '../assets/leaves-right.png';
+import rollzAdsVideo from '../assets/ROLLZ-ADS.mp4';
 
 export default function Hero() {
   const [videoModalOpen, setVideoModalOpen] = useState(false);
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        setVideoModalOpen(false);
+      }
+    };
+
+    if (videoModalOpen) {
+      document.addEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'hidden';
+      if (videoRef.current) {
+        videoRef.current.currentTime = 0;
+        videoRef.current.play().catch(() => {});
+      }
+    } else {
+      document.body.style.overflow = '';
+      if (videoRef.current) {
+        videoRef.current.pause();
+      }
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = '';
+    };
+  }, [videoModalOpen]);
 
   // Smooth mouse parallax physics
   const mouseX = useMotionValue(0);
@@ -70,7 +98,7 @@ export default function Hero() {
     <section
       id="home"
       onMouseMove={handleMouseMove}
-      className="relative min-h-screen w-full flex flex-col justify-between pt-0 pb-6 overflow-hidden select-none"
+      className="relative min-h-screen w-full flex flex-col justify-between pt-20 sm:pt-24 md:pt-28 pb-6 overflow-hidden select-none"
     >
       {/* BACKGROUND LEAVES: True Top-Left Viewport Edge (framing the logo from the top) */}
       <motion.div
@@ -103,9 +131,6 @@ export default function Hero() {
           className="w-full h-auto object-contain filter drop-shadow-[0_10px_20px_rgba(0,0,0,0.06)]"
         />
       </motion.div>
-
-      {/* HEADER & NAVIGATION (Seamlessly overlaid at the top) */}
-      <Navbar />
 
       {/* ATMOSPHERIC BACKGROUND LIGHTING */}
       <div className="absolute top-1/4 right-4 w-[600px] h-[600px] bg-gradient-to-br from-red-100/30 via-orange-50/20 to-transparent rounded-full blur-3xl pointer-events-none -z-10" />
@@ -427,50 +452,79 @@ export default function Hero() {
       {/* ======================================================== */}
       {/* VIDEO MODAL FOR "WATCH OUR STORY"                         */}
       {/* ======================================================== */}
-      {videoModalOpen && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          aria-label="Our Story Video Player"
-          className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4"
-          onClick={() => setVideoModalOpen(false)}
-        >
-          <div
-            className="relative w-full max-w-3xl bg-neutral-900 rounded-3xl overflow-hidden shadow-2xl border border-neutral-700"
-            onClick={(e) => e.stopPropagation()}
+      <AnimatePresence>
+        {videoModalOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Our Story Video Player"
+            className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-6"
+            onClick={() => setVideoModalOpen(false)}
           >
-            <button
-              onClick={() => setVideoModalOpen(false)}
-              className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-rollz-red transition-colors focus:outline-none focus:ring-2 focus:ring-white"
-              aria-label="Close Video"
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0, y: 15 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.95, opacity: 0, y: 15 }}
+              transition={{ type: 'spring', damping: 26, stiffness: 320 }}
+              className="relative w-full max-w-4xl bg-neutral-900 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-neutral-700/80 flex flex-col"
+              onClick={(e) => e.stopPropagation()}
             >
-              <X className="w-5 h-5" />
-            </button>
-            <div className="relative pt-[56.25%] bg-black">
-              <iframe
-                className="absolute inset-0 w-full h-full"
-                src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?autoplay=1"
-                title="ROLLZ Brand Story"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
-            </div>
-            <div className="p-6 bg-neutral-900 text-white flex items-center justify-between">
-              <div>
-                <h3 className="text-xl font-black uppercase tracking-tight text-white">
-                  The ROLLZ Way: Sizzling Since Day One
-                </h3>
-                <p className="text-sm text-neutral-400 mt-1">
-                  Freshly grilled meats, handcrafted secret sauces, wrapped to absolute perfection.
-                </p>
+              {/* Close Button */}
+              <button
+                type="button"
+                onClick={() => setVideoModalOpen(false)}
+                className="absolute top-3 sm:top-4 right-3 sm:right-4 z-20 w-10 h-10 rounded-full bg-black/70 hover:bg-rollz-red text-white flex items-center justify-center transition-all duration-200 border border-white/20 hover:border-rollz-red shadow-lg focus:outline-none focus:ring-2 focus:ring-rollz-red"
+                aria-label="Close Video"
+              >
+                <X className="w-5 h-5" />
+              </button>
+
+              {/* Video Player */}
+              <div className="relative bg-black flex items-center justify-center overflow-hidden aspect-video max-h-[72vh]">
+                <video
+                  ref={videoRef}
+                  src={rollzAdsVideo}
+                  controls
+                  autoPlay
+                  playsInline
+                  preload="auto"
+                  className="w-full h-full object-contain bg-black outline-none"
+                >
+                  <source src={rollzAdsVideo} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
               </div>
-              <span className="px-3 py-1 bg-rollz-red text-white text-xs font-bold rounded-full uppercase tracking-wider">
-                ORIGINAL RECIPE
-              </span>
-            </div>
-          </div>
-        </div>
-      )}
+
+              {/* Video Info Footer */}
+              <div className="p-4 sm:p-6 bg-gradient-to-b from-neutral-900 to-neutral-950 text-white flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-t border-neutral-800">
+                <div>
+                  <div className="flex items-center gap-2">
+                    <span className="inline-block w-2 h-2 rounded-full bg-rollz-red animate-pulse" />
+                    <span className="text-[11px] font-bold uppercase tracking-widest text-rollz-red">
+                      Official ROLLZ Commercial
+                    </span>
+                  </div>
+                  <h3 className="text-lg sm:text-xl font-black uppercase tracking-tight text-white mt-1">
+                    The ROLLZ Way: Sizzling Since Day One
+                  </h3>
+                  <p className="text-xs sm:text-sm text-neutral-400 mt-0.5">
+                    Crispy, juicy, flame-seared rolls packed with fresh crunch and authentic flavour.
+                  </p>
+                </div>
+                <div className="flex items-center gap-2 self-start sm:self-center shrink-0">
+                  <span className="px-3.5 py-1.5 bg-rollz-red text-white text-xs font-black tracking-wider uppercase rounded-full shadow-sm">
+                    ROLLZ ORIGINAL
+                  </span>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

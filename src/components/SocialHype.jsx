@@ -388,18 +388,18 @@ export default function SocialHype() {
               <span className="text-rollz-red">#WRAPPEDINFLAVOUR</span>
             </h3>
             <p className="text-neutral-400 text-xs sm:text-sm font-medium mt-2 max-w-xl">
-              Post your sauciest first bite Reel or TikTok, tag <strong>@rollzfoodworks</strong>, and stand a chance to win <strong>Free Rolls for an Entire Month</strong>.
+              Post your sauciest first bite Reel or TikTok, tag <strong>@rollz.pdkt</strong>, and stand a chance to win <strong>Free Rolls for an Entire Month</strong>.
             </p>
           </div>
 
           <a
-            href="https://instagram.com"
+            href="https://www.instagram.com/rollz.pdkt?exln=MWJtOGRuZ2RuaHlqdg=="
             target="_blank"
             rel="noopener noreferrer"
             className="relative z-10 shrink-0 inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-rollz-red hover:bg-[#d90b15] text-white font-black text-xs sm:text-sm tracking-wider uppercase shadow-xl shadow-rollz-red/35 transition-all duration-300 hover:scale-105 active:scale-95"
           >
             <InstagramIcon className="w-4 h-4" />
-            <span>FOLLOW @ROLLZFOODWORKS</span>
+            <span>FOLLOW @ROLLZ.PDKT</span>
             <ArrowUpRight className="w-4 h-4" />
           </a>
         </motion.div>
@@ -455,12 +455,19 @@ export default function SocialHype() {
 
               {/* Center Play Simulation */}
               <div className="relative z-10 self-center text-center">
-                <div className="w-20 h-20 rounded-full bg-rollz-red/90 text-white flex items-center justify-center shadow-2xl mx-auto mb-3">
-                  <Play className="w-8 h-8 fill-current translate-x-0.5" />
-                </div>
-                <span className="text-xs font-bold text-white/80 uppercase tracking-widest bg-black/60 px-3 py-1 rounded-full border border-white/10">
-                  TAP TO WATCH ON INSTAGRAM
-                </span>
+                <a
+                  href="https://www.instagram.com/rollz.pdkt?exln=MWJtOGRuZ2RuaHlqdg=="
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group block"
+                >
+                  <div className="w-20 h-20 rounded-full bg-rollz-red/90 text-white flex items-center justify-center shadow-2xl mx-auto mb-3 group-hover:scale-110 group-hover:bg-rollz-red transition-all">
+                    <Play className="w-8 h-8 fill-current translate-x-0.5" />
+                  </div>
+                  <span className="text-xs font-bold text-white/90 uppercase tracking-widest bg-black/70 hover:bg-rollz-red px-4 py-1.5 rounded-full border border-white/20 transition-colors inline-block">
+                    WATCH ON INSTAGRAM @ROLLZ.PDKT
+                  </span>
+                </a>
               </div>
 
               {/* Bottom Quote & Dish */}
